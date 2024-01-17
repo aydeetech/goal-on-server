@@ -7,13 +7,18 @@ const {
   updateGoal,
   deleteGoal,
 } = require("../controllers/goalController");
+// const { updateOne } = require("../models/goalsmodel");
 
 
-router.get('/api/goals', getAllGoals);
-router.post('/api/goals', createGoal);
+// router.get('/api/goals', getAllGoals);
+// router.post('/api/goals', createGoal);
 
-router.get("/api/goals/:goalId", getAGoal)
-router.patch("/api/goals/:goalId", updateGoal)
-router.delete("/api/goals/:goalId", deleteGoal)
+router.route('/').get(getAllGoals).post(createGoal)
+
+router.route('/:goalsId').get(getAGoal).patch(updateGoal).delete(deleteGoal)
+
+// router.get("/api/goals/:goalId", getAGoal)
+// router.patch("/api/goals/:goalId", updateGoal)
+// router.delete("/api/goals/:goalId", deleteGoal)
 
 module.exports = router;
